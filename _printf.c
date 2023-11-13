@@ -34,11 +34,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*(format + 1) == 's')
 			{
-				char *str = va_arg(args, char *);
-
-				if (str == NULL)
-					str = "null";
-				count += _print_str(str);
+				count += _print_str(va_arg(args, char *));
 				format += 2;
 			}
 			else if (*(format + 1) == '%')
