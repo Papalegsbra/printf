@@ -11,10 +11,10 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list str;
+	va_list args;
 	int count = 0;
 
-	va_start(str, format);
+	va_start(args, format);
 	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 
@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 
 			if (*(format + 1) == 'c')
 			{
-				count += _putchar(va_arg(str, int));
+				count += _putchar(va_arg(args, int));
 				format += 2;
 			}
 			else if (*(format + 1) == 's')
 			{
-				count += _print_str(va_arg(str, char *));
+				count += _print_str(va_arg(args, char *));
 				format += 2;
 			}
 			else if (*(format + 1) == '%')
@@ -47,6 +47,6 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-	va_end(str);
+	va_end(args);
 	return (count);
 }
