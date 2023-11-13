@@ -4,20 +4,16 @@
 /**
  * _printf - produces output according to a format
  * @format: is a character string.
- * The format string is composed of zero or more directives.
- *
- * Return: the number of characters printed
- * (excluding the null byte used to end output to strings).
+ * The format string is composed of zero or more directives
+ * Return: the number of characters printed, excluding '\0'
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
-	char *str;
 
-	if (format == NULL)
+	if (format == NULL || (*format == '%' &&  *(format + 1) == '\0'))
 		return (-1);
-
 	va_start(args, format);
 	while (*format)
 	{
@@ -38,10 +34,10 @@ int _printf(const char *format, ...)
 			}
 			else if (*(format + 1) == 's')
 			{
-				str = va_arg(args, char *);
+				char *str = va_arg(args, char *);
+
 				if (str == NULL)
 					str = "null";
-
 				count += _print_str(str);
 				format += 2;
 			}
