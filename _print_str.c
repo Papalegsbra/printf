@@ -13,8 +13,5 @@ int _print_str(char *str)
 {
 	int len = strlen(str);
 
-	if (str == NULL)
-		str = "(nil)";
-
 	return (write(1, str, len));
 }
