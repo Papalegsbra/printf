@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(args, format);
-	if (format == NULL)
+	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 
 	while (*format)
@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*(format + 1) == 's')
 			{
-				count += _print_str(va_arg(args, char*));
+				count += _print_str(va_arg(args, char *));
 				format += 2;
 			}
 			else if (*(format + 1) == '%')

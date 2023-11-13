@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <string.h>
 
 /**
  * _print_str - prints a character string
@@ -10,10 +11,7 @@
 
 int _print_str(char *str)
 {
-	int i;
-	int len = 0;
+	int len = strlen(str);
 
-	for (i = 0; str[i] != '\0'; i++)
-			len++;
 	return (write(1, str, len));
 }
