@@ -15,5 +15,5 @@ int _print_str(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 			len++;
-	return (write(1, &str, len));
+	return (write(1, str, len));
 }
