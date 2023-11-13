@@ -24,9 +24,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			format++;
-			if(*format == '\0')
+			if (*(format + 1) == '\0')
 				break;
+			format++;
 			switch (*format)
 			{
 				case 'c':
