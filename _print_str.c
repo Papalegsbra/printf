@@ -11,10 +11,10 @@
 
 int _print_str(char *str)
 {
+	int len = strlen(str);
+
 	if (str == NULL)
 		str = "(null)";
-
-	int len = strlen(str);
 
 	return (write(1, str, len));
 }
