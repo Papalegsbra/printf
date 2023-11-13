@@ -25,6 +25,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			if(*format == '\0')
+				break;
 			switch (*format)
 			{
 				case 'c':
@@ -37,7 +39,6 @@ int _printf(const char *format, ...)
 					char_cnt += _putchar('%');
 					break;
 				default:
-					char_cnt += _putchar(*format);
 					break;
 			}
 			format++;
