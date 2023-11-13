@@ -4,16 +4,17 @@
  * _printf - produces output according to a format
  * @format: is a character string.
  * The format string is composed of zero or more directives
- * Return: the number of characters printed, excluding '\0'
+ * Return: the number of characters printed, excluding the null byte
  */
 int _printf(const char *format, ...)
 {
 	va_list args_list;
 	int char_cnt = 0;
 
-	va_start(args_list, format);
 	if (format == NULL)
 		return (-1);
+	va_start(args_list, format);
+
 	while (*format)
 	{
 		if (*format != '%')
@@ -21,7 +22,7 @@ int _printf(const char *format, ...)
 			char_cnt += _putchar(*format);
 			format++;
 		}
-		else if ((*format == '%') && (*(format + 1) != '\0'))
+		else
 		{
 			format++;
 			switch (*format)
