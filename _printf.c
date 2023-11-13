@@ -36,12 +36,15 @@ int _printf(const char *format, ...)
 				case 's':
 					count += _print_str(va_arg(args, char *));
 					format++;
+					break;
 				case '%':
 					count += _putchar('%');
 					format++;
 					break;
 				default:
 					count += _putchar(*format);
+					format++;
+					break;
 			}
 		}
 	}
