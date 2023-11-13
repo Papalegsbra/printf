@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
  * _printf - produces output according to a format
@@ -9,45 +8,40 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int count = 0;
+	va_list args_list;
+	int char_cnt = 0;
 
-	if (format == NULL || (*format == '%' && *(format + 1) == '\0')
+	va_start(args_list, format);
+	if (format == NULL)
 		return (-1);
-	va_start(args, format);
 	while (*format)
 	{
 		if (*format != '%')
 		{
-			count += _putchar(*format);
+			char_cnt += _putchar(*format);
 			format++;
 		}
-		else
+		else if ((*format == '%') && (*(format + 1) != '\0'))
 		{
 			format++;
-			if (*format) == '\0')
-				break;
 			switch (*format)
 			{
 				case 'c':
-					count += _putchar(va_arg(args, int));
-					format++;
+					char_cnt += _putchar(va_arg(args_list, int));
 					break;
 				case 's':
-					count += _print_str(va_arg(args, char *));
-					format++;
+					char_cnt += _print_str(va_arg(args_list, char*));
 					break;
 				case '%':
-					count += _putchar('%');
-					format++;
+					char_cnt += _putchar('%');
 					break;
 				default:
-					count += _putchar(*format);
-					format++;
+					char_cnt += _putchar(*format);
 					break;
 			}
+			format++;
 		}
 	}
-	va_end(args);
-	return (count);
+	va_end(args_list);
+	return (char_cnt);
 }
