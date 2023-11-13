@@ -16,7 +16,7 @@ int _print_str(char *str)
 	if (str == NULL)
 		str = "null";
 	for (i = 0; str[i] != '\0'; i++)
-			len++;
+		len++;
 
 	return (write(1, str, len));
 }
