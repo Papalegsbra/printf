@@ -13,9 +13,10 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
+	char *str;
 
 	va_start(args, format);
-	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
+	if (format == NULL)
 		return (-1);
 
 	while (*format)
@@ -32,12 +33,13 @@ int _printf(const char *format, ...)
 
 			if (*(format + 1) == 'c')
 			{
-				count += _putchar(va_arg(args, int));
+				count += (char) _putchar(va_arg(args, int));
 				format += 2;
 			}
 			else if (*(format + 1) == 's')
 			{
-				count += _print_str(va_arg(args, char*));
+				str = va_arg(args, char *);
+				count += write(1, str, _strlen(str));
 				format += 2;
 			}
 			else if (*(format + 1) == '%')
