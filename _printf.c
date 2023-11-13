@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 
 			if (*(format + 1) == 'c')
 			{
-				count += (char) _putchar(va_arg(args, int));
+				count += _putchar(va_arg(args, int));
 				format += 2;
 			}
 			else if (*(format + 1) == 's')
