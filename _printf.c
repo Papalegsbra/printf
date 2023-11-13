@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stddef.h>
 
-
 /**
  * _printf - produces output according to a format
  * @format: is a character string.
