@@ -11,11 +11,11 @@ int _print_number(int x)
 
 	if (x < 0)
 	{
-		char_count += _print_str("negative");
+		char_count += _putchar('-');
 		x = -x;
 	}
 
-	char_count += _print_str(x);
+	char_count += _putchar(x + '0');
 
-	return (char_count);
+	return_count;
 }
