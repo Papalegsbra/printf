@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int char_cnt = 0;
 	va_list args_list;
 
-	if (*format == '%' && *(format + 1) == '\0')
+	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 	va_start(args_list, format);
 	while (*format != '\0')
@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (*(format + 1) == '\0')
+			if (*(format + 1) == '\0' ||
+					(*(format + 1) >= 0 && *(format + 1) < 32))
 				break;
 			format++;
 			if (*format == 'c')
