@@ -11,6 +11,7 @@
 int _print_str(char *str)
 {
 	int len = 0;
+
 	if (str == NULL)
 		str = "null";
 	len = _strlen(str);
