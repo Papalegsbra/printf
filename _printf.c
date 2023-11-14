@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 				char_cnt += _putchar('%');
 			else
 			{
-					char_cnt += _print_str("error");
+				char_cnt += _print_str("error");
 			}
 		}
 		format++;
