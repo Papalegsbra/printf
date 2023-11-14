@@ -14,12 +14,11 @@ int _printf(const char *format, ...)
 	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 	va_start(args_list, format);
-	while (*format)
+	while (*format != '\0'))
 	{
 		if (*format != '%')
 		{
 			char_cnt += _putchar(*format);
-			format++;
 		}
 		else
 		{
@@ -32,8 +31,10 @@ int _printf(const char *format, ...)
 				char_cnt += _print_str(va_arg(args_list, char *));
 			else if (*format  == '%')
 				char_cnt += _putchar('%');
-			format++;
+			else
+				char_cnt += _putchar(*format);
 		}
+		format++;
 	}
 	va_end(args_list);
 	return (char_cnt);
