@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				char_cnt += _putchar('%');
-				char_cnt += _print_str("Error: Unidentified specifier");
+				char_cnt += _putchar(*format);
 			}
 		}
 		format++;
