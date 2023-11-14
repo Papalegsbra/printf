@@ -15,6 +15,11 @@ int _print_number(int x)
 		x = -x;
 	}
 
+	if (x / 10)
+	{
+		char_count += _print_number(x / 10);
+	}
+
 	char_count += _putchar(x + '0');
 
 	return_count;
