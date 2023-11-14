@@ -32,7 +32,10 @@ int _printf(const char *format, ...)
 			else if (*format  == '%')
 				char_cnt += _putchar('%');
 			else
+			{
+				char_cnt += _putchar('%');
 				char_cnt += _putchar(*format);
+			}
 		}
 		format++;
 	}
