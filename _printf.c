@@ -33,13 +33,8 @@ int _printf(const char *format, ...)
 				char_cnt += _putchar('%');
 			else
 			{
-				if (*format >= 32 && *format < 127)
-				{
-					char_cnt += _putchar('%');
-					char_cnt += _putchar(*format);
-				}
-				else
-					char_cnt += _print_str("error");
+				char_cnt += _putchar('%');
+				char_cnt += _putchar(*format);
 			}
 		}
 		format++;
