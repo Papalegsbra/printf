@@ -10,13 +10,10 @@
 
 int _print_str(char *str)
 {
-	int i, len;
-
-	len = 0;
+	int len = 0;
 	if (str == NULL)
 		str = "null";
-	for (i = 0; str[i] != '\0'; i++)
-		len++;
+	len = _strlen(str);
 
 	return (write(1, str, len));
 }
