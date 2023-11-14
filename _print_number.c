@@ -22,5 +22,5 @@ int _print_number(int x)
 
 	char_count += _putchar(x + '0');
 
-	return_count;
+	return(char_count);
 }
