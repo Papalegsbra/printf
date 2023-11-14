@@ -26,20 +26,12 @@ int _printf(const char *format, ...)
 			if (*(format + 1) == '\0')
 				break;
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					char_cnt += _putchar(va_arg(args_list, int));
-					break;
-				case 's':
-					char_cnt += _print_str(va_arg(args_list, char*));
-					break;
-				case '%':
-					char_cnt += _putchar('%');
-					break;
-				default:
-					break;
-			}
+			if (*format == 'c')
+				char_cnt += _putchar(va_arg(args_list, int));
+			else if (*format == 's')
+				char_cnt += _print_str(va_arg(args_list, char *));
+			else if (*format  == '%')
+				char_cnt += _putchar('%');
 			format++;
 		}
 	}
