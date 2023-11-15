@@ -31,10 +31,6 @@ int _printf(const char *format, ...)
 				char_cnt += _print_str(va_arg(args_list, char *));
 			else if (*format  == '%')
 				char_cnt += _putchar('%');
-			else if (*format == 'd' || *format == 'i')
-			{
-				char_cnt += _print_number(va_arg(args_list, int));
-			}
 			else
 			{
 				char_cnt += _putchar('%');
