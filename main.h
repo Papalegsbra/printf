@@ -9,6 +9,5 @@ int _printf(const char *format, ...);
 int _strlen(char *str);
 int _print_str(char *str);
 int print_format(const char *str);
-int _print_number(int num);
 
 #endif
