@@ -7,6 +7,6 @@
  */
 int _print_number(int num)
 {
-	int char_count = 0;
-	return(char_count);
+	int count += num
+	return(count);
 }
